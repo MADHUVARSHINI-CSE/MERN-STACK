@@ -1,0 +1,26 @@
+// ** SQL COMMENTS FOR AGGREGATE FUNCTIONS AND JOINTS   ** //
+-- AGGREGATE FUNCTIONS
+-- create a table
+CREATE TABLE students (
+  ID INTEGER PRIMARY KEY,
+  NAME char,DEPARTMENT varchar(10),MARK FLOAT);
+);
+-- insert some values
+INSERT INTO students (ID,NAME,DEPARTMENT,MARK) VALUES (1, 'Ramesh', 'cse',78.1 ),(2, 'Khilan','cse',85.1),(3, 'kaushik','eee',87.3),(4, 'Khan', 'ece',70.6),(5, 'veeran','cce',95.5);
+
+-- fetch some values
+select * from students;
+select count(DEPARTMENT) as cse_count from students where DEPARTMENT='cse';
+select avg(mark) from students;
+select sum(mark) from students where department="cse";
+select min(mark)from students;
+select max(mark) from students;
+
+
+//**  SQL JOINS  **//
+A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+--> TYPES OF JOIN
+ *(INNER) JOIN: Returns records that have matching values in both tables
+ *LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
+ *RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table
+ *FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table
