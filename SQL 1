@@ -29,5 +29,6 @@ select * from students;
 select * from students order by age;
 -- 2. count of data
 select count(major) as cse_count from students where major='cse';
+--**--
 
 
