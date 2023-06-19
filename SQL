@@ -1,0 +1,33 @@
+DATABASE MANAGEMENT SYSTEM
+ TOPICS LEARNED:
+  *Components of dbms
+  *DBMS Architecture
+  *Types of dbms
+  *Data models
+  *Types of query language
+SQL-STRUCTURED QUERY LANGUAGE
+-->I have learned sql commands to create tables in database and CURD operations 
+
+
+//**   SQL COMMENTS FOR CURD OPERATIONS and SORTING AND COUNT OF DATA **//
+-- CURD OPERATIONS
+-- create a table
+CREATE TABLE students (
+  ID INTEGER PRIMARY KEY,
+  NAME char,AGE integer,MAJOR varchar(10)
+);
+-- insert some values
+INSERT INTO students (ID,NAME,AGE,MAJOR) VALUES (1, 'Ramesh', 32, 'cse' ),(2, 'Khilan', 25,'cse'),(3, 'kaushik', 23, 'eee'),(4, 'Khan', 24,'cse'),(5, 'veeran', 20,'cce'),
+(6, 'lalli', 20,'cse'),(7, 'padma', 21,'cse'),(8, 'priya', 25,'eee'),(9, 'raju', 32,'ece'),(10, 'john', 25,'it');
+-- fetch some values
+SELECT * FROM students;
+ALTER TABLE students add column email varchar(100);
+update students set email= "ramesh.123@gmail.com" where id=1;
+delete from students where id=4;
+select * from students;
+-- 1.sorting the data
+select * from students order by age;
+-- 2. count of data
+select count(major) as cse_count from students where major='cse';
+
+
