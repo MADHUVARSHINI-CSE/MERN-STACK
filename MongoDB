@@ -1,0 +1,275 @@
+ **  MongoDB  **
+-->I have learned the comments and curd operations in MongoDB
+
+
+// ** CAR DATABASE USING MONGODB  **//
+--> To create database : use database_name
+use cardb
+switched to db cardb
+-->To show the current database: db
+db
+cardb
+--> To list the databases in db : show database_name
+show dbs
+admin   40.00 KiB
+cardb   56.00 KiB
+config  72.00 KiB
+local   40.00 KiB
+testdb  56.00 KiB
+-->To create collectionsand insert many datas: db.collection_name.insertMany({},{})
+db.carcollections.insertMany([{Name:"Porsche",Model:'911',Rented_user_count:2,Mileage:9,Transmission:"manual",Rent:'1L',Fuel:"Petrol",Image_url:"https://Porsche.com"},{Name:"Lamborghini",Model:'Urus',Rented_user_count:1,Mileage:7.6,Transmission:"automatic",Rent:'1L',Fuel:"Petrol",Image_url:"https://Lamborghini.com"},{Name:"BMW",Model:'i3',Rented_user_count:3,Mileage:13,Transmission:"automatic",Rent:'80K',Fuel:"Gas",Image_url:"https://BMW.com"},{Name:"Audi",Model:'A4',Rented_user_count:5,Mileage:17,Transmission:"automatic",Rent:'50K',Fuel:"Diesel",Image_url:"https://Audi.com"},{Name:"Dodge Challenger",Model:'GT',Rented_user_count:1,Mileage:19,Transmission:"manual",Rent:'10L',Fuel:"Gas",Image_url:"https://DodgeChallenger.com"},{Name:"Toyoto",Model:'Supra',Rented_user_count:2,Mileage:20,Transmission:"automatic",Rent:'90K',Fuel:"Gasoline",Image_url:"https://Toyoto.com"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64924e9c53517551df8c8f4f"),
+    '1': ObjectId("64924e9c53517551df8c8f50"),
+    '2': ObjectId("64924e9c53517551df8c8f51"),
+    '3': ObjectId("64924e9c53517551df8c8f52"),
+    '4': ObjectId("64924e9c53517551df8c8f53"),
+    '5': ObjectId("64924e9c53517551df8c8f54")
+  }
+}
+db.carcollections.insertMany([{Name:"volkswagen",Model:'virtus',Rented_user_count:6,Mileage:19,Transmission:"manual",Rent:'30k',Fuel:"Petrol",Image_url:"https://Volkswagen.com"},{Name:"ferrari",Model:'F430',Rented_user_count:1,Mileage:8.7,Transmission:"Manual",Rent:'80K',Fuel:"Petrol",Image_url:"https://ferrari.com"},{Name:"Mercedes-Benz",Model:'GLA',Rented_user_count:4,Mileage:20,Transmission:"automatic",Rent:'70K',Fuel:"Diesel",Image_url:"https://Benz.com"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6492526b53517551df8c8f55"),
+    '1': ObjectId("6492526b53517551df8c8f56"),
+    '2': ObjectId("6492526b53517551df8c8f57")
+  }
+}
+--> To fetch the data in database : db.collection_name.find()
+db.carcollections.find()
+{
+  _id: ObjectId("64922dc04ae9602420230f1f"),
+  Name: 'Mustang',
+  Model: 'shelby GT500',
+  Rented_user_count: 2,
+  Mileage: 13,
+  Transmission: 'automatic',
+  Rent: '23L',
+  Fuel: 'Petrol',
+  Image_url: 'https://en.wikipedia.org/wiki/Ford_Mustang.com'
+}
+{
+  _id: ObjectId("64924e9c53517551df8c8f4f"),
+  Name: 'Porsche',
+  Model: '911',
+  Rented_user_count: 2,
+  Mileage: 9,
+  Transmission: 'manual',
+  Rent: '1L',
+  Fuel: 'Petrol',
+  Image_url: 'https://Porsche.com'
+}
+{
+  _id: ObjectId("64924e9c53517551df8c8f50"),
+  Name: 'Lamborghini',
+  Model: 'Urus',
+  Rented_user_count: 1,
+  Mileage: 7.6,
+  Transmission: 'automatic',
+  Rent: '1L',
+  Fuel: 'Petrol',
+  Image_url: 'https://Lamborghini.com'
+}
+{
+  _id: ObjectId("64924e9c53517551df8c8f51"),
+  Name: 'BMW',
+  Model: 'i3',
+  Rented_user_count: 3,
+  Mileage: 13,
+  Transmission: 'automatic',
+  Rent: '80K',
+  Fuel: 'Gas',
+  Image_url: 'https://BMW.com'
+}
+{
+  _id: ObjectId("64924e9c53517551df8c8f52"),
+  Name: 'Audi',
+  Model: 'A4',
+  Rented_user_count: 5,
+  Mileage: 17,
+  Transmission: 'automatic',
+  Rent: '50K',
+  Fuel: 'Diesel',
+  Image_url: 'https://Audi.com'
+}
+{
+  _id: ObjectId("64924e9c53517551df8c8f53"),
+  Name: 'Dodge Challenger',
+  Model: 'GT',
+  Rented_user_count: 1,
+  Mileage: 19,
+  Transmission: 'manual',
+  Rent: '10L',
+  Fuel: 'Gas',
+  Image_url: 'https://DodgeChallenger.com'
+}
+{
+  _id: ObjectId("64924e9c53517551df8c8f54"),
+  Name: 'Toyoto',
+  Model: 'Supra',
+  Rented_user_count: 2,
+  Mileage: 20,
+  Transmission: 'automatic',
+  Rent: '90K',
+  Fuel: 'Gasoline',
+  Image_url: 'https://Toyoto.com'
+}
+{
+  _id: ObjectId("6492526b53517551df8c8f55"),
+  Name: 'volkswagen',
+  Model: 'virtus',
+  Rented_user_count: 6,
+  Mileage: 19,
+  Transmission: 'manual',
+  Rent: '30k',
+  Fuel: 'Petrol',
+  Image_url: 'https://Volkswagen.com'
+}
+{
+  _id: ObjectId("6492526b53517551df8c8f56"),
+  Name: 'ferrari',
+  Model: 'F430',
+  Rented_user_count: 1,
+  Mileage: 8.7,
+  Transmission: 'Manual',
+  Rent: '80K',
+  Fuel: 'Petrol',
+  Image_url: 'https://ferrari.com'
+}
+{
+  _id: ObjectId("6492526b53517551df8c8f57"),
+  Name: 'Mercedes-Benz',
+  Model: 'GLA',
+  Rented_user_count: 4,
+  Mileage: 20,
+  Transmission: 'automatic',
+  Rent: '70K',
+  Fuel: 'Diesel',
+  Image_url: 'https://Benz.com'
+}
+--> to update a data in a collection :  db.collection_name.update({},$set:{})
+db.collection.update({name:"ferrari"},{$set:{Rent:"1L"}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+
+--> To sort the data in collections :  db.collection_name.find().sort({})
+db.carcollections.find().sort({Mileage:"1"})
+{
+  _id: ObjectId("64924e9c53517551df8c8f50"),
+  Name: 'Lamborghini',
+  Model: 'Urus',
+  Rented_user_count: 1,
+  Mileage: 7.6,
+  Transmission: 'automatic',
+  Rent: '1L',
+  Fuel: 'Petrol',
+  Image_url: 'https://Lamborghini.com'
+}
+{
+  _id: ObjectId("6492526b53517551df8c8f56"),
+  Name: 'ferrari',
+  Model: 'F430',
+  Rented_user_count: 1,
+  Mileage: 8.7,
+  Transmission: 'Manual',
+  Rent: '80K',
+  Fuel: 'Petrol',
+  Image_url: 'https://ferrari.com'
+}
+{
+  _id: ObjectId("64924e9c53517551df8c8f4f"),
+  Name: 'Porsche',
+  Model: '911',
+  Rented_user_count: 2,
+  Mileage: 9,
+  Transmission: 'manual',
+  Rent: '1L',
+  Fuel: 'Petrol',
+  Image_url: 'https://Porsche.com'
+}
+{
+  _id: ObjectId("64922dc04ae9602420230f1f"),
+  Name: 'Mustang',
+  Model: 'shelby GT500',
+  Rented_user_count: 2,
+  Mileage: 13,
+  Transmission: 'automatic',
+  Rent: '23L',
+  Fuel: 'Petrol',
+  Image_url: 'https://en.wikipedia.org/wiki/Ford_Mustang.com'
+}
+{
+  _id: ObjectId("64924e9c53517551df8c8f51"),
+  Name: 'BMW',
+  Model: 'i3',
+  Rented_user_count: 3,
+  Mileage: 13,
+  Transmission: 'automatic',
+  Rent: '80K',
+  Fuel: 'Gas',
+  Image_url: 'https://BMW.com'
+}
+{
+  _id: ObjectId("64924e9c53517551df8c8f52"),
+  Name: 'Audi',
+  Model: 'A4',
+  Rented_user_count: 5,
+  Mileage: 17,
+  Transmission: 'automatic',
+  Rent: '50K',
+  Fuel: 'Diesel',
+  Image_url: 'https://Audi.com'
+}
+{
+  _id: ObjectId("64924e9c53517551df8c8f53"),
+  Name: 'Dodge Challenger',
+  Model: 'GT',
+  Rented_user_count: 1,
+  Mileage: 19,
+  Transmission: 'manual',
+  Rent: '10L',
+  Fuel: 'Gas',
+  Image_url: 'https://DodgeChallenger.com'
+}
+{
+  _id: ObjectId("6492526b53517551df8c8f55"),
+  Name: 'volkswagen',
+  Model: 'virtus',
+  Rented_user_count: 6,
+  Mileage: 19,
+  Transmission: 'manual',
+  Rent: '30k',
+  Fuel: 'Petrol',
+  Image_url: 'https://Volkswagen.com'
+}
+{
+  _id: ObjectId("64924e9c53517551df8c8f54"),
+  Name: 'Toyoto',
+  Model: 'Supra',
+  Rented_user_count: 2,
+  Mileage: 20,
+  Transmission: 'automatic',
+  Rent: '90K',
+  Fuel: 'Gasoline',
+  Image_url: 'https://Toyoto.com'
+}
+{
+  _id: ObjectId("6492526b53517551df8c8f57"),
+  Name: 'Mercedes-Benz',
+  Model: 'GLA',
+  Rented_user_count: 4,
+  Mileage: 20,
+  Transmission: 'automatic',
+  Rent: '70K',
+  Fuel: 'Diesel',
+  Image_url: 'https://Benz.com'
+}
