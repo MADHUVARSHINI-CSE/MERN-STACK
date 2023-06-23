@@ -94,6 +94,22 @@ const calculator =(num1,num2,opertaion) => {
  arr3.push(6,7,8,9,10);
  console.log(arr3);
  console.log( arr3.shift());
+
+//modules
+/*import USER_DATA,{addUser as add,editUser as edit,editMultipleParamInUser ,deleteUser as del } from "./userModules.js";
+ add(
+    {
+        id:2,
+        name:'kavi',
+        age:20,
+        email:'kavi@gmail.com'
+
+    }
+ );
+ del(1);
+ edit(2,'name','hello'); 
+ console.log(USER_DATA);*/
+
  
  //task:o/p-->"arish"
  let b="harish";
