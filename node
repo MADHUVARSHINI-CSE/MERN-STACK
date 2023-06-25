@@ -1,0 +1,113 @@
+//node.js
+//introduction and uses
+// getting input and output
+///*console.log("hello world");
+let a=10;
+let b=20;
+console.log(a+b);*/
+//functions and exporting modules 
+//f.js
+function add(n1,n2){
+    return n1+n2;
+}
+ function sub(n1,n2){
+     return n1-n2;
+ }
+ function mul(n1,n2){
+     return n1*n2;
+ }
+ function div(n1,n2){
+     return n1/n2;
+ }
+module.exports={add,sub,mul,div};
+//f1.js
+const {add,sub,mul,div} = require('./f.js');
+ console.log(add(1,2));
+
+//
+fs module
+//read file
+ const fs =require('fs');
+ /*fs.readFile(`${__dirname}/states.txt`, (err, data) => {
+    if (err){
+        console.log("Error");
+    }
+    else{
+    console.log(data.toString());
+    }
+  });
+
+//template.literls
+const name='mahes';
+ console.log(`helo ${name}! how r you`);
+console.log(__dirname+"states.txt");*/
+const inputData ='Maharastra';
+
+//write file
+fs.writeFile(`${__dirname}/states.txt`,inputData,(err)=>{
+   if (err){
+        console.log("Error");
+   }
+  else{
+  console.log("writing");
+ }
+ })
+ console.log('hello');
+
+
+
+// promise
+ function read(filepath){
+   return  new Promise((resolve, reject) => {
+     fs.readFile(filepath, (err, data) => {
+        if (err){
+            reject("Error");
+        }
+        else{
+        resolve(data);
+        }
+     })
+    })
+}
+function write(filepath,inputData){
+    return  new Promise((resolve, reject) => {
+      fs.writeFile(filepath,inputData, (err, data) => {
+        //const x=toString();
+         if (err){
+             reject("Error");
+         }
+         else{
+         resolve("write complete");
+         }
+      })
+     })
+ }
+
+ 
+// promise chaining
+ read(`${__dirname}/states.txt`)
+ .then((data)=>
+ {
+    console.log(data.toString());
+    // const x=data.tostring()+"\n jammu";
+    // return write(`${__dirname}/test.txt`,x)
+    return write(`${__dirname}/states.txt`,"hello")
+.then((data)=>{
+       console.log(data);
+       
+    })
+ }).catch((err)=>{//only one catch block  is used
+    console.log(err);
+ })
+
+ //async and wait 
+ const fileoperation= async() =>{
+    try{
+    const states = await read(`${__dirname}/states.txt`);
+    const result = await write(`${__dirname}/states.txt`,states);
+    console.log(result);
+    }catch(error){
+        console.log(error); 
+    }
+ }
+ fileoperation();
